@@ -1,0 +1,20 @@
+SELECT * FROM `MOCK_DATA` WHERE `last_name` = "palmer" 
+
+SELECT * FROM `MOCK_DATA` WHERE `gender` = "female" 
+
+SELECT * FROM `MOCK_DATA` WHERE `state_code` LIKE "n%" 
+
+SELECT * FROM `MOCK_DATA` WHERE `email` like "%google%"
+
+SELECT `state_code`, COUNT(`state_code`) FROM `MOCK_DATA` GROUP BY `state_code` ASC
+
+INSERT INTO `MOCK_DATA`(`id`, `first_name`, `last_name`, `email`, `gender`, `ip_address`, `birth_date`, `zip_code`, `avatar_url`, `state_code`, `country_code`) VALUES ('1001','utilisateur','nomtest','Mailtest@test.fr','','','','','','','')
+UPDATE `MOCK_DATA` SET `email`='Modifmailtest@test.fr' WHERE `id` = '1001'
+DELETE FROM `MOCK_DATA` WHERE `id` = '1001'
+
+SELECT `gender`, COUNT(*) FROM `MOCK_DATA` GROUP BY `gender`
+
+SELECT *, FLOOR(DATEDIFF(CURRENT_DATE,STR_TO_DATE(t.birth_date, "%d/%m/%Y")) / 365.242199) AS ageMembre FROM jeuphp t
+
+SELECT `gender`, AVG(FLOOR(DATEDIFF(CURRENT_DATE, STR_TO_DATE(t.birth_date, '%d/%m/%Y')) / 365.242199)) AS age FROM `jeuphp` t GROUP BY `gender`
+
