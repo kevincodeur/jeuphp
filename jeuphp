@@ -18,3 +18,40 @@ SELECT *, FLOOR(DATEDIFF(CURRENT_DATE,STR_TO_DATE(t.birth_date, "%d/%m/%Y")) / 3
 
 SELECT `gender`, AVG(FLOOR(DATEDIFF(CURRENT_DATE, STR_TO_DATE(t.birth_date, '%d/%m/%Y')) / 365.242199)) AS age FROM `jeuphp` t GROUP BY `gender`
 
+CREATE TABLE MembreACS
+(
+    id INT (10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    prénom VARCHAR (255) NOT NULL,
+    nom VARCHAR (255) NOT NULL,
+    idDPT INT (10) NOT NULL
+)
+
+CREATE TABLE DépartementACS ( 
+idDPT INT (10) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+numéroDPT VARCHAR (255) NOT NULL, 
+nomDPT VARCHAR (255) NOT NULL )
+
+INSERT INTO MembreACS (prénom, nom, idDPT)
+ VALUES  ('Kévin', 'CAMBON', '2'),
+ ('Rijarivo', 'ANDRIANOELINA', '4'),
+ ('Léo','BURE', '2'),
+ ('Armelle','DUPUIS', '3'),
+ ('Morgan','GAUTHRAY', '1'),
+ ('Pierre-Yves','GUILLOU', '1'),
+ ('David','JOUVELOT', '1'),
+ ('Clémentine','LYBLIAMAY', '3'),
+ ('Aurélien','MAIRET', '1'),
+ ('Thomas','MARECHAL', '3'),
+ ('Hélène','FITTE-DUVAL', '4')
+
+INSERT INTO DépartementACS (id, nomDPT, numéroDPT)
+ VALUES ('1', "CÔTE D'OR", '21'),
+ ('2', 'SAVOIE','73'),
+ ('3', 'SAÔNE ET LOIRE','71'),
+ ('4', 'PARIS', '75')
+
+SELECT * 
+FROM `MembreACS`
+INNER JOIN `DépartementACS`
+ON `MembreACS`.`idDPT` = `DépartementACS`.`idDPT`
+
