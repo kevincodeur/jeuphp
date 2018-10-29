@@ -44,7 +44,7 @@ INSERT INTO MembreACS (prénom, nom, idDPT)
  ('Thomas','MARECHAL', '3'),
  ('Hélène','FITTE-DUVAL', '4')
 
-INSERT INTO DépartementACS (id, nomDPT, numéroDPT)
+INSERT INTO DépartementACS (idDPT, nomDPT, numéroDPT)
  VALUES ('1', "CÔTE D'OR", '21'),
  ('2', 'SAVOIE','73'),
  ('3', 'SAÔNE ET LOIRE','71'),
